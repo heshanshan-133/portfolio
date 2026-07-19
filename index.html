@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>何姗珊 - 游戏开发工程师作品集</title>
+<style>
+/* 冷灰商务高级配色体系 */
+:root{
+    --main:#366699;
+    --lightBlue:#5a8fb9;
+    --bgBase:#f8f9fa;
+    --textDark:#1a1a1a;
+    --textGray:#404040;
+    --textLight:#707070;
+    --cardBorder:#e4e7ec;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:system-ui,sans-serif;background:var(--bgBase);color:var(--textDark);line-height:1.65;}
+.container-wrap{max-width:1240px;margin:0 auto;padding:0 20px;}
+.section-gap{padding:50px 0;}
+.pt-40{padding-top:150px;}
+
+/* 导航 */
+nav{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);z-index:50;box-shadow:0 1px 6px rgba(0,0,0,0.05);}
+.nav-inner{display:flex;justify-content:space-between;align-items:center;height:64px;}
+.nav-title{font-size:20px;font-weight:600;color:var(--main);text-decoration:none;}
+.nav-links{display:flex;gap:36px;}
+.nav-links a{color:var(--textDark);text-decoration:none;font-size:15px;transition:color 0.24s;}
+.nav-links a:hover{color:var(--main);}
+.mobile-menu{font-size:20px;border:none;background:transparent;display:none;}
+@media(max-width:768px){.nav-links{display:none;}.mobile-menu{display:block;}}
+
+/* 卡片简约优化 冷灰中性阴影 */
+.card-base{background:#fff;border:1px solid var(--cardBorder);border-radius:14px;padding:26px;transition:transform 0.3s ease,box-shadow 0.3s;}
+.card-base:hover{transform:translateY(-5px);box-shadow:0 10px 28px rgba(0,0,0,0.04);}
+
+/* 文字层级精简 */
+h1{font-size:clamp(40px,5vw,48px);font-weight:600;margin-bottom:12px;letter-spacing:0.5px;}
+h2{font-size:clamp(28px,4vw,34px);font-weight:600;margin-bottom:42px;border-left:3px solid var(--main);padding-left:14px;}
+h3{font-size:22px;font-weight:600;color:var(--main);margin-bottom:14px;}
+h4{font-weight:500;margin-bottom:6px;font-size:16px;}
+.text-main{color:var(--main);font-weight:500;}
+.text-light{color:var(--textLight);font-size:14px;}
+.text-gray{color:var(--textGray);font-size:15px;line-height:1.7;}
+
+/* 标签 适配冷蓝主色 */
+.tag{display:inline-block;padding:3px 11px;border-radius:999px;font-size:13px;margin:0 6px 8px 0;}
+.tag-main{background:rgba(54,102,153,0.14);color:var(--main);}
+.tag-blue{background:rgba(90,143,185,0.14);color:var(--lightBlue);}
+.tag-normal{background:#f1f2f4;color:var(--textGray);}
+
+/* 按钮 */
+.btn-solid{background:var(--main);color:#fff;padding:11px 22px;border-radius:8px;text-decoration:none;transition:all 0.25s;}
+.btn-solid:hover{background:rgba(54,102,153,0.9);transform:translateY(-2px);}
+.btn-outline{border:1px solid var(--main);color:var(--main);padding:11px 22px;border-radius:8px;text-decoration:none;transition:all 0.25s;}
+.btn-outline:hover{background:rgba(54,102,153,0.06);transform:translateY(-2px);}
+.flex-wrap{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;}
+
+/* 网格布局 */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
+.grid-2-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+@media(max-width:768px){.grid-2,.grid-4,.grid-3{grid-template-columns:1fr;}}
+
+/* 视频容器 冷调浅灰底色 */
+.video-box{width:100%;aspect-ratio:16/9;background:#f1f2f4;border-radius:12px;margin-bottom:20px;overflow:hidden;}
+.video-box iframe{width:100%;height:100%;border-radius:12px;border:none;}
+
+/* 列表 */
+ul{list-style:none;margin:14px 0;}
+ul li{margin:5px 0;font-size:14px;color:var(--textGray);padding-left:16px;position:relative;}
+ul li::before{content:"✓";position:absolute;left:0;color:var(--main);}
+
+/* 页脚 极低透明度底色，干净不厚重 */
+footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-top:20px;}
+.back-top{position:fixed;bottom:26px;right:26px;width:42px;height:42px;background:var(--main);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
+</style>
+</head>
+<body>
+<!-- 顶部导航 -->
+<nav>
+    <div class="container-wrap nav-inner">
+        <a href="#hero" class="nav-title">何姗珊</a>
+        <div class="nav-links">
+            <a href="#works">核心作品</a>
+            <a href="#other">其他作品</a>
+            <a href="#skill">技能工具</a>
+            <a href="#contact">联系方式</a>
+        </div>
+        <button class="mobile-menu">☰</button>
+    </div>
+</nav>
+
+<!-- 封面 Hero 区块 -->
+<section id="hero" class="section-gap pt-40" style="background:linear-gradient(135deg, #f0f4f9 0%, #e4ebf5 100%);">
+    <div class="container-wrap">
+        <div style="max-width:900px;">
+            <p style="font-size:26px;color:var(--main);margin-bottom:14px;font-weight:500;">Unity客户端开发实习生 · 2027届</p>
+            <p class="text-light" style="font-size:17px;margin-bottom:22px;">GPA3.8 专业前3% | 中共党员 | 7项软件著作权</p>
+            <p class="text-gray" style="margin-bottom:14px;">深耕Unity游戏开发，拥有商业塔防、卡牌科普、视觉小说、科普益智、VR交互多品类完整落地项目，具备独立开发与团队主程带队经验，多项目成功上线并取得软著、赛事奖项。</p>
+            <p class="text-gray">熟练掌握C#客户端、热更新、数值配置、UI框架开发，擅长模块化解耦与性能优化，可适配手游、微信小程序、VR多终端，兼具技术开发与项目统筹管理能力。</p>
+            <div class="flex-wrap">
+                <a href="#works" class="btn-solid">查看全部作品</a>
+                <a href="#skill" class="btn-outline">技术栈一览</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 核心作品区 -->
+<section id="works" class="section-gap">
+    <div class="container-wrap">
+        <h2>核心项目作品</h2>
+        <div class="grid-2">
+            <!-- 猫猫王国 -->
+            <div class="card-base">
+                <div class="video-box">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1gaKq6BEKS&page=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                    <div>
+                        <h3>猫猫王国</h3>
+                        <span class="tag tag-main">商业塔防游戏</span>
+                    </div>
+                    <div class="text-light" style="text-align:right;">2025.06-2026.04<br>8人团队 · 程序主程</div>
+                </div>
+                <div class="grid-2-col">
+                    <div>
+                        <h4>项目背景</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">Unity商业塔防，融合养成+策略战斗，多平台适配，已申请游戏版号。</p>
+                    </div>
+                    <div>
+                        <h4>本人职责</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">主程，负责养成、战斗、Spine动画、Luban数值、HybridCLR热更新模块。</p>
+                    </div>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>核心开发内容</h4>
+                    <ul>
+                        <li>国王养成系统：属性、技能树、装备穿戴逻辑</li>
+                        <li>战斗状态机、伤害计算、Buff/Debuff完整管理</li>
+                        <li>Spine骨骼动画导入、多角色同屏性能调优</li>
+                        <li>热更新、WebSocket网络、Protobuf数据序列化</li>
+                    </ul>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>项目成果</h4>
+                    <p class="text-main">游戏成功申请版号，数值驱动架构支撑长期版本迭代。</p>
+                </div>
+                <div>
+                    <span class="tag tag-blue">Unity</span>
+                    <span class="tag tag-blue">C#</span>
+                    <span class="tag tag-normal">Spine</span>
+                    <span class="tag tag-normal">DOTween</span>
+                    <span class="tag tag-normal">HybridCLR</span>
+                    <span class="tag tag-normal">Luban</span>
+                </div>
+            </div>
+
+            <!-- 悬浮之境 -->
+            <div class="card-base">
+                <div class="video-box">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1MRKB6rExM&page=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                    <div>
+                        <h3>悬浮之境</h3>
+                        <span class="tag tag-main">视觉小说互动游戏</span>
+                    </div>
+                    <div class="text-light" style="text-align:right;">2025.10-2025.11<br>6人团队 · 程序主程</div>
+                </div>
+                <div class="grid-2-col">
+                    <div>
+                        <h4>项目背景</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">黑白叙事视觉小说，内置互动贴吧系统，已上线TapTap。</p>
+                    </div>
+                    <div>
+                        <h4>本人职责</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">主程，聊天交互、多存档、全局状态管理、模块化解耦架构。</p>
+                    </div>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>核心开发内容</h4>
+                    <ul>
+                        <li>AI聊天交互、剧情彩蛋触发逻辑</li>
+                        <li>多档位Json存档、本地数据持久化</li>
+                        <li>Excel剧情解析、打字机文本、场景立绘切换</li>
+                        <li>动画效果、移动端跨平台性能兼容优化</li>
+                    </ul>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>项目成果</h4>
+                    <p class="text-main">TapTap上线，下载浏览7000+，创新互动叙事玩法。</p>
+                </div>
+                <div>
+                    <span class="tag tag-blue">Unity</span>
+                    <span class="tag tag-blue">C#</span>
+                    <span class="tag tag-normal">DOTween</span>
+                    <span class="tag tag-normal">ExcelDataReader</span>
+                </div>
+            </div>
+
+            <!-- 串串研究所 -->
+            <div class="card-base">
+                <div class="video-box">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1D8Kz62EfC&page=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                    <div>
+                        <h3>串串研究所</h3>
+                        <span class="tag tag-main">益智科普卡牌游戏</span>
+                    </div>
+                    <div class="text-light" style="text-align:right;">2025.11-2026.02<br>4人团队 · 项目组长/主程</div>
+                </div>
+                <div class="grid-2-col">
+                    <div>
+                        <h4>项目背景</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">食材合成科普小程序，饮食文化教学，获软件著作权。</p>
+                    </div>
+                    <div>
+                        <h4>本人职责</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">统筹团队开发，卡牌合成、关卡、科普展示全套系统开发。</p>
+                    </div>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>核心开发内容</h4>
+                    <ul>
+                        <li>ScriptableObject卡牌数据库、枚举管理</li>
+                        <li>字典优化合成查询、合成状态机流程</li>
+                        <li>对象池复用，降低UI渲染内存开销</li>
+                        <li>JSON+PlayerPrefs本地进度存储</li>
+                    </ul>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>项目成果</h4>
+                    <p class="text-main">取得软著、上线微信小程序，入围开拓芯游戏创作大赛。</p>
+                </div>
+                <div>
+                    <span class="tag tag-blue">Unity</span>
+                    <span class="tag tag-blue">C#</span>
+                    <span class="tag tag-normal">UGUI</span>
+                    <span class="tag tag-normal">对象池</span>
+                </div>
+            </div>
+
+            <!-- 糖豆小镇大闯关 -->
+            <div class="card-base">
+                <div class="video-box">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1DaKz6LEuG&page=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                    <div>
+                        <h3>糖豆小镇大闯关</h3>
+                        <span class="tag tag-main">青少年健康科普游戏</span>
+                    </div>
+                    <div class="text-light" style="text-align:right;">2025.05-2026.06<br>单人独立开发</div>
+                </div>
+                <div class="grid-2-col">
+                    <div>
+                        <h4>项目背景</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">糖尿病科普小游戏，连连看+医疗模拟课堂，微信小程序上线。</p>
+                    </div>
+                    <div>
+                        <h4>本人职责</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">独立完成架构、模块开发、交互、性能优化与全流程测试。</p>
+                    </div>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>核心开发内容</h4>
+                    <ul>
+                        <li>拖拽匹配连连看交互逻辑</li>
+                        <li>单例全局管理器、协程异步处理</li>
+                        <li>场景切换、音频反馈系统</li>
+                        <li>关卡分数、进度本地持久化存储</li>
+                    </ul>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>项目成果</h4>
+                    <p class="text-main">软著认证，院级虚仿赛道二等奖，小程序正式上线。</p>
+                </div>
+                <div>
+                    <span class="tag tag-blue">Unity</span>
+                    <span class="tag tag-blue">C#</span>
+                    <span class="tag tag-normal">协程</span>
+                    <span class="tag tag-normal">单例模式</span>
+                </div>
+            </div>
+
+            <!-- 茉莉香韵VR 通栏 -->
+            <div class="card-base">
+                <div class="video-box">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1Hh2rBKEjc&page=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+                    <div>
+                        <h3>茉莉香韵VR</h3>
+                        <span class="tag tag-main">非遗茶文化VR交互项目</span>
+                    </div>
+                    <div class="text-light" style="text-align:right;">2025.07-2026.09<br>2人团队 · VR程序开发</div>
+                </div>
+                <div class="grid-2-col">
+                    <div>
+                        <h4>项目背景</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">非遗茉莉茶沉浸式VR实训，完整茶道交互，适配多类XR设备。</p>
+                    </div>
+                    <div>
+                        <h4>本人职责</h4>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">手柄抓取交互、流程状态机、动画音频反馈、跨设备兼容开发。</p>
+                    </div>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>核心开发内容</h4>
+                    <ul>
+                        <li>XR Interaction Toolkit手柄、射线交互系统</li>
+                        <li>茶道全流程状态机与配套动画</li>
+                        <li>OpenXR标准，PC VR/一体机多设备适配</li>
+                        <li>教学UI、粒子特效、音频引导交互反馈</li>
+                    </ul>
+                </div>
+                <div style="margin-bottom:16px;">
+                    <h4>项目成果</h4>
+                    <p class="text-main">软著认证，院级虚拟仿真赛道一等奖，可用于教学实训。</p>
+                </div>
+                <div>
+                    <span class="tag tag-blue">Unity</span>
+                    <span class="tag tag-blue">C#</span>
+                    <span class="tag tag-normal">XR Toolkit</span>
+                    <span class="tag tag-normal">OpenXR</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 其他作品 -->
+<section id="other" class="section-gap" style="background:rgba(255,255,255,0.5);">
+    <div class="container-wrap">
+        <h2>其他学习作品</h2>
+        <div class="grid-3">
+            <!-- 133快跑 -->
+            <div class="card-base" style="padding:20px;">
+                <div class="video-box" style="margin-bottom:16px;">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1MRKB6rE8j&page=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h3 style="font-size:18px;margin-bottom:8px;">133快跑</h3>
+                <span class="tag tag-normal">罗布乐思</span>
+                <p class="text-gray" style="font-size:14px;">3D跑酷闯关，角色控制、平台跳跃、完整关卡流程。</p>
+            </div>
+            <!-- 黄昏下的灯 -->
+            <div class="card-base" style="padding:20px;">
+                <div class="video-box" style="margin-bottom:16px;">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1MRKB6rE8j&page=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h3 style="font-size:18px;margin-bottom:8px;">黄昏下的灯</h3>
+                <span class="tag tag-normal">罗布乐思</span>
+                <p class="text-gray" style="font-size:14px;">光影休闲场景，自由漫步沉浸式体验，训练营优秀作品。</p>
+            </div>
+            <!-- 咪来猜成语 -->
+            <div class="card-base" style="padding:20px;">
+                <div class="video-box" style="margin-bottom:16px;">
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1D8Kz62E8F&page=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <h3 style="font-size:18px;margin-bottom:8px;">咪来猜成语</h3>
+                <span class="tag tag-normal">益智猜谜游戏</span>
+                <p class="text-gray" style="font-size:14px;">成语闯关小游戏，解锁猫舍、计分记时、多关卡循环系统。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 技能工具板块 -->
+<section id="skill" class="section-gap"  >
+    <div class="container-wrap">
+        <h2>技能与工具</h2>
+        <div class="grid-4">
+            <!-- 游戏引擎 -->
+            <div class="card-base">
+                <h3 style="font-size:20px;margin-bottom:16px;">游戏引擎</h3>
+                <ul style="margin:0;">
+                    <li>Unity 2021+ <span class="text-main">熟练</span></li>
+                    <li>UE5 <span class="text-light">掌握</span></li>
+                    <li>Roblox Studio <span class="text-main">熟练</span></li>
+                </ul>
+            </div>
+            <!-- 编程语言 -->
+            <div class="card-base">
+                <h3 style="font-size:20px;margin-bottom:16px;">编程语言</h3>
+                <ul style="margin:0;">
+                    <li>C# <span class="text-main">熟练</span></li>
+                    <li>C++ <span class="text-light">掌握</span></li>
+                    <li>Lua <span class="text-main">熟练</span></li>
+                    <li>Node.js <span class="text-light">了解</span></li>
+                </ul>
+            </div>
+            <!-- 插件/中间件 -->
+            <div class="card-base">
+                <h3 style="font-size:20px;margin-bottom:16px;">中间件&工具</h3>
+                <ul style="margin:0;">
+                    <li>DOTween / Spine</li>
+                    <li>HybridCLR / Luban</li>
+                    <li>WebSocket / Protobuf</li>
+                    <li>XR Interaction Toolkit</li>
+                </ul>
+            </div>
+            <!-- 综合能力 -->
+            <div class="card-base">
+                <h3 style="font-size:20px;margin-bottom:16px;">综合软技能</h3>
+                <ul style="margin:0;">
+                    <li>项目统筹/团队管理</li>
+                    <li>性能优化、游戏测试</li>
+                    <li>数值配置、热更新开发</li>
+                    <li>小程序/VR多端适配</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 封底联系页脚 -->
+<footer id="contact" style="background:linear-gradient(135deg, #e4ebf5 0%, #f0f4f9 100%);">
+    <div class="container-wrap">
+        <h2 style="text-align:center;border:none;padding-left:0;margin-bottom:32px;">联系方式</h2>
+        <div style="margin-bottom:40px;">
+            <p style="font-size:17px;margin:12px 0;">我的电话：13512313873</p>
+            <p style="font-size:17px;margin:12px 0;">我的邮箱：3447665582@qq.com</p>
+            <p style="font-size:17px;margin:12px 0;">意向城市：广州 / 成都 / 上海</p>
+        </div>
+        <p class="text-light" style="font-size:14px;">© 2027 何姗珊 · 游戏客户端开发实习生作品集</p>
+    </div>
+    <a href="#hero" class="back-top">↑</a>
+</footer>
+</body>
+</html>
