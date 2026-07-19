@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>何姗珊 - 游戏开发工程师作品集</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        main: '#f27c4b',
+                        lightBlue: '#57a6d8',
+                        bgBase: '#fffbf7',
+                        textDark: '#222831',
+                        textGray: '#444444',
+                        textLight: '#777777',
+                        cardBorder: '#eee8e3'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .section-gap {
+                @apply py-24;
+            }
+            .container-wrap {
+                @apply max-w-[1280px] mx-auto px-5 md:px-8;
+            }
+            .card-base {
+                @apply bg-white rounded-xl border border-cardBorder p-6 hover:-translate-y-1 transition-all duration-300;
+            }
+            .tag {
+                @apply px-3 py-1 rounded-full text-sm bg-slate-100 text-textGray inline-block mr-2 mb-2;
+            }
+            .tag-main {
+                @apply bg-main/15 text-main;
+            }
+            .tag-blue {
+                @apply bg-lightBlue/15 text-lightBlue;
+            }
+            .video-box {
+                @apply w-full aspect-[16/9] bg-slate-100 rounded-lg flex items-center justify-center mb-5 cursor-pointer group overflow-hidden p-0;
+            }
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #fffbf7;
+        }
+    </style>
+</head>
+<body class="font-sans text-textDark">
+    <!-- 顶部导航 -->
+    <nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+        <div class="container-wrap flex justify-between items-center h-16">
+            <a href="#hero" class="text-xl font-semibold text-main">何姗珊 | Game Dev</a>
+            <div class="hidden md:flex gap-8">
+                <a href="#about" class="hover:text-main transition-colors">自我介绍</a>
+                <a href="#works" class="hover:text-main transition-colors">核心作品</a>
+                <a href="#other" class="hover:text-main transition-colors">其他作品</a>
+                <a href="#skill" class="hover:text-main transition-colors">技能工具</a>
+                <a href="#contact" class="hover:text-main transition-colors">联系方式</a>
+            </div>
+            <button class="md:hidden text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 封面 Hero 区块 -->
+    <section id="hero" class="section-gap pt-40">
+        <div class="container-wrap flex flex-col gap-8">
+            <div class="max-w-2xl">
+                <h1 class="text-[42px] md:text-[52px] font-semibold mb-4">何姗珊</h1>
+                <h2 class="text-[24px] md:text-[28px] text-main font-medium mb-3">游戏开发工程师</h2>
+                <p class="text-textLight text-lg mb-6">重庆工程学院 · 虚拟现实技术本科 | GPA 3.8 专业前3%</p>
+                <div class="flex gap-4 flex-wrap">
+                    <a href="#works" class="bg-main text-white px-6 py-3 rounded-lg hover:bg-main/90 transition-colors">
+                        <i class="fa fa-gamepad mr-2"></i>查看全部作品
+                    </a>
+                    <a href="#skill" class="border border-main text-main px-6 py-3 rounded-lg hover:bg-main/5 transition-colors">
+                        <i class="fa fa-code mr-2"></i>技术栈一览
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 自我介绍 About -->
+    <section id="about" class="section-gap bg-white/60">
+        <div class="container-wrap">
+            <h2 class="text-[36px] font-semibold mb-12 border-l-4 border-main pl-4">自我介绍</h2>
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="text-textGray text-lg leading-[1.7]">
+                    <p class="mb-4">中共党员，21岁虚拟现实技术本科，深耕Unity游戏开发，具备完整商业塔防、科普、VR、视觉小说全品类项目落地经验，7项软件著作权加持。</p>
+                    <p>擅长C#客户端开发、热更新、数值配置、XR交互系统，独立/带队完成多平台上线项目，熟悉团队统筹、项目测试与性能优化，适配手游、小程序、VR多终端开发。</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="card-base text-center py-6">
+                        <div class="text-[32px] text-main font-bold">3.8</div>
+                        <div class="text-textLight">平均绩点 · 专业前3%</div>
+                    </div>
+                    <div class="card-base text-center py-6">
+                        <div class="text-[32px] text-main font-bold">7</div>
+                        <div class="text-textLight">软件著作权</div>
+                    </div>
+                    <div class="card-base text-center py-6">
+                        <div class="text-[32px] text-main font-bold">6</div>
+                        <div class="text-textLight">完整上线项目</div>
+                    </div>
+                    <div class="card-base text-center py-6">
+                        <div class="text-[32px] text-main font-bold">1</div>
+                        <div class="text-textLight">商业版号项目</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心作品区（5个项目统一详细排版，内置B站iframe模板） -->
+    <section id="works" class="section-gap">
+        <div class="container-wrap">
+            <h2 class="text-[36px] font-semibold mb-12 border-l-4 border-main pl-4">核心项目作品</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 项目1：猫猫王国 B站视频区域 -->
+                <div class="card-base">
+                    <div class="video-box">
+                        <iframe 
+                            class="w-full h-full rounded-lg"
+                            src="https://www.bilibili.com/video/BV1gaKq6BEKS/?spm_id_from=333.337.search-card.all.click&vd_source=d3b99012ba3cf5574fc65328896afb47"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-[22px] font-medium text-main">猫猫王国</h3>
+                            <span class="tag tag-main">商业塔防游戏</span>
+                        </div>
+                        <div class="text-textLight text-sm text-right">2025.06-2026.04<br>重庆数艺影视传媒 · 8人团队 · 程序主程</div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-medium mb-2">项目背景</h4>
+                            <p class="text-textGray text-sm leading-relaxed">Unity开发商业塔防游戏，融合角色养成+策略战斗，支持多平台上线，已申请游戏版号。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">本人职责</h4>
+                            <p class="text-textGray text-sm leading-relaxed">主程，负责养成系统、战斗核心逻辑、Spine动画优化、Luban数值配置、热更新模块开发。</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">核心开发内容</h4>
+                        <ul class="text-sm text-textGray space-y-1">
+                            <li><i class="fa fa-check text-main mr-2"></i>国王养成系统：属性、技能树、装备穿戴逻辑</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>战斗状态机、伤害计算、Buff/Debuff管理</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>Spine骨骼动画导入、性能渲染调优</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>HybridCLR热更新、WebSocket网络通信、Protobuf序列化</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">项目成果</h4>
+                        <p class="text-main text-sm font-medium">游戏成功申请版号，计划全平台上线，完整数值驱动架构稳定支撑版本迭代。</p>
+                    </div>
+                    <div>
+                        <span class="tag tag-blue">Unity</span>
+                        <span class="tag tag-blue">C#</span>
+                        <span class="tag">Spine</span>
+                        <span class="tag">DOTween</span>
+                        <span class="tag">HybridCLR</span>
+                        <span class="tag">Luban</span>
+                        <span class="tag">WebSocket</span>
+                        <span class="tag">Protobuf</span>
+                    </div>
+                </div>
+
+                <!-- 项目2：悬浮之境 B站视频区域 -->
+                <div class="card-base">
+                    <div class="video-box">
+                        <iframe 
+                            class="w-full h-full rounded-lg"
+                            src="https://www.bilibili.com/video/BV1MRKB6rExM/?spm_id_from=333.1387.homepage.video_card.click&vd_source=d3b99012ba3cf5574fc65328896afb47"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-[22px] font-medium text-main">悬浮之境</h3>
+                            <span class="tag tag-main">视觉小说互动游戏</span>
+                        </div>
+                        <div class="text-textLight text-sm text-right">2025.10-2025.11<br>奇异果工作室 · 6人团队 · 程序主程</div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-medium mb-2">项目背景</h4>
+                            <p class="text-textGray text-sm leading-relaxed">Unity黑白叙事视觉小说，内置互动贴吧系统，沉浸式剧情治愈向作品，上线TapTap平台。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">本人职责</h4>
+                            <p class="text-textGray text-sm leading-relaxed">主程，开发聊天交互系统、多存档管理、全局游戏状态管理、模块化解耦架构。</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">核心开发内容</h4>
+                        <ul class="text-sm text-textGray space-y-1">
+                            <li><i class="fa fa-check text-main mr-2"></i>ChatController聊天界面、AI回复、剧情彩蛋触发</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>SaveLoadManager多存档位、Json存档解析</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>Excel剧情解析、打字机文本、立绘场景切换</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>DOTween动画、跨平台性能兼容优化</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">项目成果</h4>
+                        <p class="text-main text-sm font-medium">TapTap平台上线，浏览下载量超7000+，创新贴吧互动叙事玩法。</p>
+                    </div>
+                    <div>
+                        <span class="tag tag-blue">Unity</span>
+                        <span class="tag tag-blue">C#</span>
+                        <span class="tag">DOTween</span>
+                        <span class="tag">ExcelDataReader</span>
+                        <span class="tag">Newtonsoft.Json</span>
+                    </div>
+                </div>
+
+                <!-- 项目3：串串研究所 B站视频区域 -->
+                <div class="card-base">
+                    <div class="video-box">
+                        <iframe 
+                            class="w-full h-full rounded-lg"
+                            src="https://www.bilibili.com/video/BV1D8Kz62EfC/?spm_id_from=333.1387.homepage.video_card.click&vd_source=d3b99012ba3cf5574fc65328896afb47"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-[22px] font-medium text-main">串串研究所</h3>
+                            <span class="tag tag-main">益智科普卡牌游戏</span>
+                        </div>
+                        <div class="text-textLight text-sm text-right">2025.11-2026.02<br>4人团队 · 项目组长/程序主程</div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-medium mb-2">项目背景</h4>
+                            <p class="text-textGray text-sm leading-relaxed">食材合成科普小游戏，融合饮食文化教学，微信小程序上线，获得软件著作权。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">本人职责</h4>
+                            <p class="text-textGray text-sm leading-relaxed">项目组长，全权负责卡牌合成、关卡、科普展示系统，统筹团队开发与测试。</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">核心开发内容</h4>
+                        <ul class="text-sm text-textGray space-y-1">
+                            <li><i class="fa fa-check text-main mr-2"></i>ScriptableObject卡牌数据库、枚举类型管理</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>字典优化合成配方查询、合成状态机流程</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>对象池性能优化、UGUI科普图文展示</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>JSON+PlayerPrefs本地数据持久化</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">项目成果</h4>
+                        <p class="text-main text-sm font-medium">获取电子软著、上线微信小程序，入围2026开拓芯大学生游戏创作大赛。</p>
+                    </div>
+                    <div>
+                        <span class="tag tag-blue">Unity</span>
+                        <span class="tag tag-blue">C#</span>
+                        <span class="tag">UGUI</span>
+                        <span class="tag">ScriptableObject</span>
+                        <span class="tag">对象池</span>
+                    </div>
+                </div>
+
+                <!-- 项目4：糖豆小镇大闯关 B站视频区域 -->
+                <div class="card-base">
+                    <div class="video-box">
+                        <iframe 
+                            class="w-full h-full rounded-lg"
+                            src="https://www.bilibili.com/video/BV1DaKz6LEuG/?spm_id_from=333.1387.homepage.video_card.click&vd_source=d3b99012ba3cf5574fc65328896afb47"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-[22px] font-medium text-main">糖豆小镇大闯关</h3>
+                            <span class="tag tag-main">儿童糖尿病科普游戏</span>
+                        </div>
+                        <div class="text-textLight text-sm text-right">2025.05-2026.06<br>单人独立开发 · 程序主程</div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-medium mb-2">项目背景</h4>
+                            <p class="text-textGray text-sm leading-relaxed">面向青少年健康科普，包含食物连连看、医疗模拟课堂，微信小程序科普教育作品。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">本人职责</h4>
+                            <p class="text-textGray text-sm leading-relaxed">独立完成全套架构、三大核心模块开发、交互逻辑、性能优化、全流程测试。</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">核心开发内容</h4>
+                        <ul class="text-sm text-textGray space-y-1">
+                            <li><i class="fa fa-check text-main mr-2"></i>拖拽匹配连连看系统DragDrop交互逻辑</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>单例模式全局管理器、协程异步处理</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>SceneManager场景切换、音频反馈系统</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>PlayerPrefs分数、关卡进度本地存储</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">项目成果</h4>
+                        <p class="text-main text-sm font-medium">软件著作权认证、上线微信小程序，获院级虚仿游戏赛道二等奖。</p>
+                    </div>
+                    <div>
+                        <span class="tag tag-blue">Unity</span>
+                        <span class="tag tag-blue">C#</span>
+                        <span class="tag">协程</span>
+                        <span class="tag">单例模式</span>
+                        <span class="tag">UGUI</span>
+                    </div>
+                </div>
+
+                <!-- 项目5：茉莉香韵VR B站视频区域 跨两栏 -->
+                <div class="card-base md:col-span-2">
+                    <div class="video-box">
+                        <iframe 
+                            class="w-full h-full rounded-lg"
+                            src="https://www.bilibili.com/video/BV1Hh2rBKEjc/?spm_id_from=333.1387.homepage.video_card.click&vd_source=d3b99012ba3cf5574fc65328896afb47"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-[22px] font-medium text-main">茉莉香韵VR</h3>
+                            <span class="tag tag-main">非遗茶文化VR交互项目</span>
+                        </div>
+                        <div class="text-textLight text-sm text-right">2025.07-2026.09<br>2人团队 · VR程序开发</div>
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h4 class="font-medium mb-2">项目背景</h4>
+                            <p class="text-textGray text-sm leading-relaxed">非遗茉莉茶沉浸式VR体验，模拟完整茶道流程，XR跨设备适配教学实训项目。</p>
+                        </div>
+                        <div>
+                            <h4 class="font-medium mb-2">本人职责</h4>
+                            <p class="text-textGray text-sm leading-relaxed">负责泡茶交互场景、XR手柄抓取、流程状态机、动画与音频反馈系统开发。</p>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">核心开发内容</h4>
+                        <ul class="text-sm text-textGray space-y-1">
+                            <li><i class="fa fa-check text-main mr-2"></i>XR Interaction Toolkit手柄抓取、射线交互</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>茶道流程状态机、温杯/投茶/注水动画系统</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>OpenXR跨VR设备兼容、粒子特效交互反馈</li>
+                            <li><i class="fa fa-check text-main mr-2"></i>单例交互管理器、教学UI与音频引导</li>
+                        </ul>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="font-medium mb-2">项目成果</h4>
+                        <p class="text-main text-sm font-medium">软著认证，院级虚拟仿真赛道一等奖，可适配PC VR、XR模拟器。</p>
+                    </div>
+                    <div>
+                        <span class="tag tag-blue">Unity</span>
+                        <span class="tag tag-blue">C#</span>
+                        <span class="tag">XR Toolkit</span>
+                        <span class="tag">OpenXR</span>
+                        <span class="tag">InputSystem</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 其他作品（简略展示） -->
+    <section id="other" class="section-gap bg-white/60">
+        <div class="container-wrap">
+            <h2 class="text-[36px] font-semibold mb-12 border-l-4 border-main pl-4">其他学习作品</h2>
+            <div class="grid sm:grid-cols-3 gap-6">
+                <!-- 133快跑 -->
+                <div class="card-base py-5">
+                    <div class="video-box mb-4">
+                        <iframe 
+                            class="w-full h-full rounded-lg"
+                            src="https://www.bilibili.com/video/BV1MRKB6rE8j/?spm_id_from=333.1387.homepage.video_card.click&vd_source=d3b99012ba3cf5574fc65328896afb47"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">133快跑</h3>
+                    <span class="tag mb-3">罗布乐思</span>
+                    <p class="text-sm text-textGray">3D跑酷闯关游戏，完整角色控制、平台跳跃、关卡流程逻辑。</p>
+                </div>
+                <!-- 黄昏下的灯 -->
+                <div class="card-base py-5">
+                    <div class="video-box mb-4">
+                        <iframe 
+                            class="w-full h-full rounded-lg"
+                            src="https://www.bilibili.com/video/BV1MRKB6rE8j/?spm_id_from=333.1387.homepage.video_card.click&vd_source=d3b99012ba3cf5574fc65328896afb47"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">黄昏下的灯</h3>
+                    <span class="tag mb-3">罗布乐思</span>
+                    <p class="text-sm text-textGray">休闲光影观赏场景，自由漫步沉浸式场景，训练营优秀毕业作品。</p>
+                </div>
+                <!-- 咪来猜成语 -->
+                <div class="card-base py-5">
+                    <div class="video-box mb-4">
+                        <iframe 
+                            class="w-full h-full rounded-lg"
+                            src="https://www.bilibili.com/video/BV1D8Kz62E8F/?spm_id_from=333.1387.homepage.video_card.click&vd_source=d3b99012ba3cf5574fc65328896afb47"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3 class="text-lg font-medium mb-2">咪来猜成语</h3>
+                    <span class="tag mb-3">益智猜谜游戏</span>
+                    <p class="text-sm text-textGray">成语猜谜闯关小游戏，后续会开发猫舍解锁和金币系统。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技能工具板块 -->
+    <section id="skill" class="section-gap">
+        <div class="container-wrap">
+            <h2 class="text-[36px] font-semibold mb-12 border-l-4 border-main pl-4">技能与工具</h2>
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- 游戏引擎 -->
+                <div class="card-base">
+                    <h3 class="text-xl font-medium text-main mb-4">游戏引擎</h3>
+                    <ul class="space-y-2 text-textGray text-sm">
+                        <li>Unity 2021+ <span class="text-main">熟练</span></li>
+                        <li>UE5 <span class="text-textLight">掌握</span></li>
+                        <li>Roblox Studio <span class="text-main">熟练</span></li>
+                    </ul>
+                </div>
+                <!-- 编程语言 -->
+                <div class="card-base">
+                    <h3 class="text-xl font-medium text-main mb-4">编程语言</h3>
+                    <ul class="space-y-2 text-textGray text-sm">
+                        <li>C# <span class="text-main">熟练</span></li>
+                        <li>C++ <span class="text-textLight">掌握</span></li>
+                        <li>Lua <span class="text-main">熟练</span></li>
+                        <li>Node.js <span class="text-textLight">了解</span></li>
+                    </ul>
+                </div>
+                <!-- 插件/中间件 -->
+                <div class="card-base">
+                    <h3 class="text-xl font-medium text-main mb-4">中间件&工具</h3>
+                    <ul class="space-y-2 text-textGray text-sm">
+                        <li>DOTween / Spine</li>
+                        <li>HybridCLR / Luban</li>
+                        <li>WebSocket / Protobuf</li>
+                        <li>XR Interaction Toolkit</li>
+                    </ul>
+                </div>
+                <!-- 综合能力 -->
+                <div class="card-base">
+                    <h3 class="text-xl font-medium text-main mb-4">综合软技能</h3>
+                    <ul class="space-y-2 text-textGray text-sm">
+                        <li>项目统筹/团队管理</li>
+                        <li>性能优化、游戏测试</li>
+                        <li>数值配置、热更新开发</li>
+                        <li>小程序/VR多端适配</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 封底联系页脚 -->
+    <footer id="contact" class="py-16 bg-main/10">
+        <div class="container-wrap text-center">
+            <h2 class="text-[32px] font-semibold mb-8">联系方式</h2>
+            <div class="space-y-3 text-lg text-textGray mb-10">
+                <p><i class="fa fa-phone text-main mr-2"></i>13512313873</p>
+                <p><i class="fa fa-envelope text-main mr-2"></i>3447665582@qq.com</p>
+                <p><i class="fa fa-map-marker text-main mr-2"></i>意向城市：广州 / 成都 / 上海</p>
+            </div>
+            <p class="text-textLight text-sm">© 2026 何姗珊 · 游戏开发工程师作品集 | GitHub Pages静态网站</p>
+            <a href="#hero" class="fixed bottom-6 right-6 w-10 h-10 bg-main text-white rounded-full flex items-center justify-center shadow-md hover:bg-main/90">
+                <i class="fa fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
