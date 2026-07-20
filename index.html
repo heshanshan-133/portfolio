@@ -61,9 +61,12 @@ h4{font-weight:500;margin-bottom:6px;font-size:16px;}
 /* 网格布局 */
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
 .grid-2-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
-.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
 .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-@media(max-width:768px){.grid-2,.grid-4,.grid-3{grid-template-columns:1fr;}}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+/* 新增5列网格 */
+.grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;}
+/* 移动端适配加上grid-5 */
+@media(max-width:768px){.grid-2,.grid-4,.grid-3,.grid-5{grid-template-columns:1fr;}}
 
 /* 视频容器 冷调浅灰底色 */
 .video-box{width:100%;aspect-ratio:16/9;background:#f1f2f4;border-radius:12px;margin-bottom:20px;overflow:hidden;}
@@ -101,7 +104,7 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
             <p style="font-size:26px;color:var(--main);margin-bottom:14px;font-weight:500;">Unity客户端开发实习生 · 2027届</p>
             <p class="text-light" style="font-size:17px;margin-bottom:22px;">GPA3.8 专业前3% | 中共党员 | 7项软件著作权</p>
             <p class="text-gray" style="margin-bottom:14px;">深耕Unity游戏开发，拥有商业塔防、卡牌科普、视觉小说、科普益智、VR交互多品类完整落地项目，具备独立开发与团队主程带队经验，多项目成功上线并取得软著、赛事奖项。</p>
-            <p class="text-gray">熟练掌握C#客户端、热更新、数值配置、UI框架开发，擅长模块化解耦与性能优化，可适配手游、微信小程序、VR多终端，兼具技术开发与项目统筹管理能力。</p>
+            <p class="text-gray">熟练掌握C#客户端、热更新、数值配置、UI框架开发，擅长模块化解耦与性能优化，可适配手游、微信小程序、申请软著，兼具技术开发与项目统筹管理能力。</p>
             <div class="flex-wrap">
                 <a href="#works" class="btn-solid">查看全部作品</a>
                 <a href="#skill" class="btn-outline">技术栈一览</a>
@@ -118,7 +121,7 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
             <!-- 猫猫王国 -->
             <div class="card-base">
                 <div class="video-box">
-                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1gaKq6BEKS&page=1" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1rkK26QE8n&page=1&high_quality=1&as_wide=1" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
                     <div>
@@ -236,7 +239,7 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>项目成果</h4>
-                    <p class="text-main">取得软著、上线微信小程序，入围开拓芯游戏创作大赛。</p>
+                    <p class="text-main">取得软著、上线微信小程序，取得多项奖项。</p>
                 </div>
                 <div>
                     <span class="tag tag-blue">Unity</span>
@@ -352,7 +355,7 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
             <!-- 黄昏下的灯 -->
             <div class="card-base" style="padding:20px;">
                 <div class="video-box" style="margin-bottom:16px;">
-                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1MRKB6rE8j&page=1" frameborder="0" allowfullscreen></iframe>
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1pzK269EtM&page=1" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <h3 style="font-size:18px;margin-bottom:8px;">黄昏下的灯</h3>
                 <span class="tag tag-normal">罗布乐思</span>
@@ -375,12 +378,12 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
 <section id="skill" class="section-gap"  >
     <div class="container-wrap">
         <h2>技能与工具</h2>
-        <div class="grid-4">
+        <div class="grid-5">
             <!-- 游戏引擎 -->
             <div class="card-base">
                 <h3 style="font-size:20px;margin-bottom:16px;">游戏引擎</h3>
                 <ul style="margin:0;">
-                    <li>Unity 2021+ <span class="text-main">熟练</span></li>
+                    <li>Unity 2021+ <span class="text-main">精通</span></li>
                     <li>UE5 <span class="text-light">掌握</span></li>
                     <li>Roblox Studio <span class="text-main">熟练</span></li>
                 </ul>
@@ -389,7 +392,7 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
             <div class="card-base">
                 <h3 style="font-size:20px;margin-bottom:16px;">编程语言</h3>
                 <ul style="margin:0;">
-                    <li>C# <span class="text-main">熟练</span></li>
+                    <li>C# <span class="text-main">精通</span></li>
                     <li>C++ <span class="text-light">掌握</span></li>
                     <li>Lua <span class="text-main">熟练</span></li>
                     <li>Node.js <span class="text-light">了解</span></li>
@@ -403,6 +406,16 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                     <li>HybridCLR / Luban</li>
                     <li>WebSocket / Protobuf</li>
                     <li>XR Interaction Toolkit</li>
+                </ul>
+            </div>
+            <!-- AI开发工具 新增 -->
+            <div class="card-base">
+                <h3 style="font-size:20px;margin-bottom:16px;">AI开发工具</h3>
+                <ul style="margin:0;">
+                    <li>TREA <span class="text-main">精通</span></li>
+                    <li>Claude Code <span class="text-main">掌握</span></li>
+                    <li>Codex <span class="text-light">精通</span></li>
+                    <li>Tuanjie AI <span class="text-main">精通</span></li>
                 </ul>
             </div>
             <!-- 综合能力 -->
