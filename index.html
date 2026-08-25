@@ -21,7 +21,6 @@ body{font-family:system-ui,sans-serif;background:var(--bgBase);color:var(--textD
 .container-wrap{max-width:1240px;margin:0 auto;padding:0 20px;}
 .section-gap{padding:40px 0;}
 .pt-40{padding-top:150px;}
-
 /* 导航 */
 nav{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);z-index:50;box-shadow:0 1px 6px rgba(0,0,0,0.05);}
 .nav-inner{display:flex;justify-content:space-between;align-items:center;height:64px;}
@@ -31,11 +30,9 @@ nav{position:fixed;top:0;left:0;width:100%;background:rgba(255,255,255,0.9);back
 .nav-links a:hover{color:var(--main);}
 .mobile-menu{font-size:20px;border:none;background:transparent;display:none;}
 @media(max-width:768px){.nav-links{display:none;}.mobile-menu{display:block;}}
-
 /* 卡片简约优化 冷灰中性阴影 */
 .card-base{background:#fff;border:1px solid var(--cardBorder);border-radius:14px;padding:26px;transition:transform 0.3s ease,box-shadow 0.3s;}
 .card-base:hover{transform:translateY(-5px);box-shadow:0 10px 28px rgba(0,0,0,0.04);}
-
 /* 文字层级精简 */
 h1{font-size:clamp(40px,5vw,48px);font-weight:600;margin-bottom:12px;letter-spacing:0.5px;}
 h2{font-size:clamp(28px,4vw,34px);font-weight:600;margin-bottom:42px;border-left:3px solid var(--main);padding-left:14px;}
@@ -44,20 +41,17 @@ h4{font-weight:500;margin-bottom:6px;font-size:16px;}
 .text-main{color:var(--main);font-weight:500;}
 .text-light{color:var(--textLight);font-size:14px;}
 .text-gray{color:var(--textGray);font-size:15px;line-height:1.7;}
-
 /* 标签 适配冷蓝主色 */
 .tag{display:inline-block;padding:3px 11px;border-radius:999px;font-size:13px;margin:0 6px 8px 0;}
 .tag-main{background:rgba(54,102,153,0.14);color:var(--main);}
 .tag-blue{background:rgba(90,143,185,0.14);color:var(--lightBlue);}
 .tag-normal{background:#f1f2f4;color:var(--textGray);}
-
 /* 按钮 */
 .btn-solid{background:var(--main);color:#fff;padding:11px 22px;border-radius:8px;text-decoration:none;transition:all 0.25s;}
 .btn-solid:hover{background:rgba(54,102,153,0.9);transform:translateY(-2px);}
 .btn-outline{border:1px solid var(--main);color:var(--main);padding:11px 22px;border-radius:8px;text-decoration:none;transition:all 0.25s;}
 .btn-outline:hover{background:rgba(54,102,153,0.06);transform:translateY(-2px);}
 .flex-wrap{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;}
-
 /* 网格布局 */
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:stretch;}
 .grid-2-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
@@ -65,18 +59,28 @@ h4{font-weight:500;margin-bottom:6px;font-size:16px;}
 .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
 /* 新增5列网格 */
 .grid-5{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;}
-/* 移动端适配加上grid-5 */
+/* 附件图片横向一排布局 */
+.grid-attach{display:grid;grid-template-columns:repeat(auto-fit, minmax(220px,1fr));gap:20px;}
+.attach-img-item{
+    border:1px solid var(--cardBorder);
+    border-radius:10px;
+    overflow:hidden;
+    background:#fff;
+}
+.attach-img-item img{
+    width:100%;
+    height:auto;
+    display:block;
+}
+/* 移动端适配加上grid-5、附件网格 */
 @media(max-width:768px){.grid-2,.grid-4,.grid-3,.grid-5{grid-template-columns:1fr;}}
-
 /* 视频容器 冷调浅灰底色 */
 .video-box{width:100%;aspect-ratio:16/9;background:#f1f2f4;border-radius:12px;margin-bottom:20px;overflow:hidden;}
 .video-box iframe{width:100%;height:100%;border-radius:12px;border:none;}
-
 /* 列表 */
 ul{list-style:none;margin:14px 0;}
 ul li{margin:5px 0;font-size:14px;color:var(--textGray);padding-left:16px;position:relative;}
 ul li::before{content:"✓";position:absolute;left:0;color:var(--main);}
-
 /* 页脚 极低透明度底色，干净不厚重 */
 footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-top:20px;}
 .back-top{position:fixed;bottom:26px;right:26px;width:42px;height:42px;background:var(--main);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 3px 10px rgba(0,0,0,0.1);}
@@ -91,20 +95,20 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
             <a href="#works">核心作品</a>
             <a href="#other">其他作品</a>
             <a href="#skill">技能工具</a>
+            <a href="#attach">附件材料</a>
             <a href="#contact">联系方式</a>
         </div>
         <button class="mobile-menu">☰</button>
     </div>
 </nav>
-
 <!-- 封面 Hero 区块 -->
 <section id="hero" class="section-gap pt-40" style="background:linear-gradient(135deg, #f0f4f9 0%, #e4ebf5 100%);">
     <div class="container-wrap">
         <div style="max-width:900px;">
             <p style="font-size:26px;color:var(--main);margin-bottom:14px;font-weight:500;">Unity客户端开发实习生 · 2027届</p>
             <p class="text-light" style="font-size:17px;margin-bottom:22px;">GPA3.8 专业前1% | 中共党员 | 7项软件著作权</p>
-            <p class="text-gray" style="margin-bottom:14px;">深耕Unity游戏开发，拥有商业塔防养成、益智答题、卡牌合成、视觉小说、VR交互多品类完整落地项目，具备8人团队主程开发与项目统筹经验，多个项目成功拿版号、上线小程序/TapTap、斩获省级奖项。</p>
-            <p class="text-gray">熟练掌握Unity客户端全流程开发、HybridCLR热更新、数值配置、性能优化、多平台适配，擅长模块化解耦、BUG迭代修复，可独立完成完整游戏项目开发落地。</p>
+            <p class="text-gray" style="margin-bottom:14px;">深耕Unity游戏开发，拥有商业塔防养成、益智答题、卡牌合成、视觉小说、VR交互多品类完整落地项目，具备8人团队程序主程开发与项目统筹经验，多个项目计划申请版号、上线微信小程序/TapTap，获得多项市级赛事奖项。</p>
+            <p class="text-gray">熟练掌握UGUI界面开发、HybridCLR热更新、ScriptableObject数值配置、性能优化、多平台打包适配；可独立完成完整游戏项目开发落地，能够使用AIGC工具辅助编码调试。</p>
             <div class="flex-wrap">
                 <a href="#works" class="btn-solid">查看全部作品</a>
                 <a href="#skill" class="btn-outline">技术栈一览</a>
@@ -112,7 +116,6 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
         </div>
     </div>
 </section>
-
 <!-- 核心作品区 -->
 <section id="works" class="section-gap">
     <div class="container-wrap">
@@ -128,41 +131,39 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                         <h3>猫猫王国</h3>
                         <span class="tag tag-main">商业塔防养成游戏</span>
                     </div>
-                    <div class="text-light" style="text-align:right;">8人团队 · 程序主程</div>
+                    <div class="text-light" style="text-align:right;">8人团队 · 程序主程<br/>2024.06‑2026.04</div>
                 </div>
                 <div class="grid-2-col">
                     <div>
                         <h4>项目背景</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">商业级塔防养成游戏，融合策略战斗、角色养成体系，支持多平台适配，已成功申报游戏版号。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">重庆数艺影视传媒商业项目，塔防养成类游戏，计划申请版号，后续上线多平台。</p>
                     </div>
                     <div>
                         <h4>本人职责</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">担任程序主程，主导战斗、养成、动画优化、热更新、数值配置全模块开发与BUG迭代修复。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">担任程序主程，负责客户端业务二次开发，养成系统、大量UGUI界面开发，配置表维护，BUG修复，协助热更资源打包提交。</p>
                     </div>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>核心开发内容</h4>
                     <ul>
-                        <li>开发国王养成系统，实现多维度属性成长、阶梯技能解锁、装备穿戴及套装效果</li>
-                        <li>主导战斗核心逻辑，完成流程调度、多层伤害计算、30+种Buff/Debuff状态管理</li>
-                        <li>完成Spine骨骼动画导入、适配与性能优化，解决卡顿、错位问题</li>
-                        <li>基于Luban搭建20+张数值配置表，依托HybridCLR实现热更新迭代</li>
+                        <li>开发国王养成系统，实现国王突破升级、装备强化、突破石相关整套玩法逻辑</li>
+                        <li>完成角色预制体迭代、角色与怪物配置表维护；开发主界面、商店、天赋、宝箱、结算弹窗等大量UGUI界面</li>
+                        <li>修复UI拉伸适配问题，清理冗余图片资源；迭代修复国王、宝箱等各业务模块BUG</li>
+                        <li>协助HybridCLR热更新资源提交与打包工作，基于YooAsset管理资源</li>
                     </ul>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>项目成果</h4>
-                    <p class="text-main">项目成功申请游戏版号，后续将开展多平台上线部署工作。</p>
+                    <p class="text-main">项目计划申请版号，后续将开展多平台上线部署工作。</p>
                 </div>
                 <div>
                     <span class="tag tag-blue">Unity</span>
                     <span class="tag tag-blue">C#</span>
-                    <span class="tag tag-normal">Spine</span>
-                    <span class="tag tag-normal">DOTween</span>
+                    <span class="tag tag-normal">UGUI</span>
                     <span class="tag tag-normal">HybridCLR</span>
-                    <span class="tag tag-normal">Luban</span>
+                    <span class="tag tag-normal">YooAsset</span>
                 </div>
             </div>
-
             <!-- 悬浮之境 -->
             <div class="card-base">
                 <div class="video-box">
@@ -171,84 +172,82 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
                     <div>
                         <h3>悬浮之境</h3>
-                        <span class="tag tag-main">黑白叙事视觉小说</span>
+                        <span class="tag tag-main">视觉小说类游戏</span>
                     </div>
-                    <div class="text-light" style="text-align:right;">6人团队 · 程序主程</div>
+                    <div class="text-light" style="text-align:right;">6人团队 · 程序主程<br/>2025.10‑2025.11</div>
                 </div>
                 <div class="grid-2-col">
                     <div>
                         <h4>项目背景</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">黑白叙事视觉小说，创新内置贴吧互动系统与剧情彩蛋，已全平台上线TapTap。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">奇异果工作室视觉叙事游戏，已上线TapTap平台。</p>
                     </div>
                     <div>
                         <h4>本人职责</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">主程，负责互动系统、多档位存档、全局状态管理、模块化解耦与性能优化。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">程序主程，贴吧互动子系统开发、安卓APK打包发布，配置表维护，游戏测试与BUG修复。</p>
                     </div>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>核心开发内容</h4>
                     <ul>
-                        <li>独立开发贴吧互动系统，实现消息收发、AI智能回复、剧情彩蛋触发功能</li>
-                        <li>搭建多档位存档管理模块，实现稳定读写与游戏进度全局管控</li>
-                        <li>采用数据驱动架构，精简30%冗余代码，修复10+读写、交互类BUG</li>
-                        <li>结合DOTween、Json优化动画表现与本地数据持久化，模块异常率降至1%以内</li>
+                        <li>开发贴吧互动子系统，完成消息展示、彩蛋触发业务功能编写</li>
+                        <li>完成安卓APK双端打包发布；基于ExcelDataReader、ScriptableObject完成配置表制作维护，保障剧情表正确加载</li>
+                        <li>开展数据优化，参与全流程游戏测试，定位修复交互、功能类BUG保障版本稳定</li>
                     </ul>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>项目成果</h4>
-                    <p class="text-main">成功上线TapTap多平台，游戏累计下载、关注及浏览量超7000+。</p>
+                    <p class="text-main">成功上线TapTap，下载、关注及浏览量累计超7000+。</p>
                 </div>
                 <div>
                     <span class="tag tag-blue">Unity</span>
                     <span class="tag tag-blue">C#</span>
                     <span class="tag tag-normal">DOTween</span>
                     <span class="tag tag-normal">ExcelDataReader</span>
+                    <span class="tag tag-normal">ScriptableObject</span>
                 </div>
             </div>
-
-            <!-- 串串研究所 -->
+            <!-- 串行记 -->
             <div class="card-base">
                 <div class="video-box">
                     <iframe src="https://player.bilibili.com/player.html?bvid=BV1D8Kz62EfC&page=1" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
                     <div>
-                        <h3>串串研究所</h3>
-                        <span class="tag tag-main">饮食文化科普卡牌合成游戏</span>
+                        <h3>串行记</h3>
+                        <span class="tag tag-main">卡牌合成类游戏</span>
                     </div>
-                    <div class="text-light" style="text-align:right;">4人团队 · 项目主程</div>
+                    <div class="text-light" style="text-align:right;">自主项目 · 程序主程<br/>2025.11‑2026.02</div>
                 </div>
                 <div class="grid-2-col">
                     <div>
                         <h4>项目背景</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">传统饮食文化科普卡牌合成游戏，面向青少年科普教育，已落地微信小程序。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">卡牌合成玩法小游戏，上线微信小程序，取得软件著作权。</p>
                     </div>
                     <div>
                         <h4>本人职责</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">主导全模块开发，负责卡牌合成、关卡逻辑、科普展示、性能优化与项目测试。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">独立主程，卡牌合成、关卡存储、新手引导全部模块开发，性能优化与项目测试。</p>
                     </div>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>核心开发内容</h4>
                     <ul>
-                        <li>基于UGUI、状态枚举搭建卡牌合成、关卡闯关、科普展示完整玩法逻辑</li>
-                        <li>通过字典优化配方查询逻辑，将查询效率提升40%</li>
-                        <li>启用对象池复用UI节点，降低35%实例化性能开销</li>
-                        <li>依托ScriptableObject、JSON搭建轻量化数值配置与数据存储体系</li>
+                        <li>独立完成卡牌合成、关卡存储、新手引导模块开发，状态机管理玩法流转逻辑</li>
+                        <li>字典优化配方查询；对象池复用菜品卡牌、合成特效，减少35%重复实例化开销</li>
+                        <li>攻克玩法技术难点，配合完成测试，保障项目运行稳定性与开发效率</li>
                     </ul>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>项目成果</h4>
-                    <p class="text-main">成功获取软件著作权、上线微信小程序，斩获虚仿与游戏赛道二等奖。</p>
+                    <p class="text-main">获得软件著作权、上线微信小程序；获第二课堂虚仿与游戏赛道二等奖。</p>
                 </div>
                 <div>
                     <span class="tag tag-blue">Unity</span>
                     <span class="tag tag-blue">C#</span>
                     <span class="tag tag-normal">UGUI</span>
+                    <span class="tag tag-normal">ScriptableObject</span>
                     <span class="tag tag-normal">对象池</span>
                 </div>
             </div>
-
             <!-- 糖豆小镇大闯关 -->
             <div class="card-base">
                 <div class="video-box">
@@ -257,41 +256,41 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
                     <div>
                         <h3>糖豆小镇大闯关</h3>
-                        <span class="tag tag-main">少儿健康科普闯关游戏</span>
+                        <span class="tag tag-main">少儿科普类游戏</span>
                     </div>
-                    <div class="text-light" style="text-align:right;">单人独立开发</div>
+                    <div class="text-light" style="text-align:right;">自主项目 · 程序主程<br/>2024.09‑2024.10</div>
                 </div>
                 <div class="grid-2-col">
                     <div>
                         <h4>项目背景</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">少儿健康科普闯关游戏，以连连看拖拽玩法实现趣味科普教学。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">少儿科普闯关小游戏，上线微信小程序，拥有软著。</p>
                     </div>
                     <div>
                         <h4>本人职责</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">独立完成项目架构设计、三大核心模块开发、交互实现与全局性能优化。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">独立完成项目架构设计，三大核心模块开发，玩法实现与性能调优。</p>
                     </div>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>核心开发内容</h4>
                     <ul>
-                        <li>实现拖拽交互、食物连连看核心闯关玩法，适配少儿操作逻辑</li>
-                        <li>运用单例模式、协程处理异步任务，优化系统调度效率</li>
-                        <li>模块化解耦重构，降低40%代码耦合度，规范项目架构</li>
-                        <li>优化资源加载与场景、音频管理，减少30%运行卡顿</li>
+                        <li>实现拖拽交互、连连看核心闯关玩法</li>
+                        <li>单例模式、协程优化异步调度，模块化解耦降低40%代码耦合</li>
+                        <li>优化资源加载，减少30%运行卡顿，提升项目稳定性</li>
                     </ul>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>项目成果</h4>
-                    <p class="text-main">斩获软件著作权、成功上线微信小程序，获虚仿与游戏赛道二等奖。</p>
+                    <p class="text-main">取得软件著作权、上线微信小程序；获第二课堂虚仿与游戏赛道二等奖。</p>
                 </div>
                 <div>
                     <span class="tag tag-blue">Unity</span>
                     <span class="tag tag-blue">C#</span>
+                    <span class="tag tag-normal">UGUI</span>
                     <span class="tag tag-normal">协程</span>
                     <span class="tag tag-normal">单例模式</span>
+                    <span class="tag tag-normal">PlayerPrefs</span>
                 </div>
             </div>
-
             <!-- 咪来猜成语 -->
             <div class="card-base">
                 <div class="video-box">
@@ -300,41 +299,41 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
                     <div>
                         <h3>咪来猜成语</h3>
-                        <span class="tag tag-main">轻量化益智答题游戏</span>
+                        <span class="tag tag-main">益智答题类游戏</span>
                     </div>
-                    <div class="text-light" style="text-align:right;">单人独立开发</div>
+                    <div class="text-light" style="text-align:right;">自主项目 · 程序主程<br/>2026.06‑2026.07</div>
                 </div>
                 <div class="grid-2-col">
                     <div>
                         <h4>项目背景</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">轻量化成语益智闯关游戏，适配WebGL与微信小程序，主打双题型趣味答题玩法。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">看图猜成语益智答题项目，完成Demo，计划上线微信小程序。</p>
                     </div>
                     <div>
                         <h4>本人职责</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">独立完成项目架构设计、五大核心模块开发、功能迭代与性能全局优化。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">独立架构设计与核心模块开发，双答题玩法、金币猫屋系统开发、性能优化。</p>
                     </div>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>核心开发内容</h4>
                     <ul>
-                        <li>实现看图猜成语、成语填字双核心玩法，覆盖9个成语、36字填字关卡内容</li>
-                        <li>运用单例模式、协程优化全局状态管理与异步答案校验、错误反馈逻辑</li>
-                        <li>模块化架构解耦，降低40%代码耦合度，优化资源调度，减少30%运行卡顿</li>
-                        <li>完成场景、UI、音频、本地存档系统开发，适配WebGL端运行</li>
+                        <li>实现看图猜成语、填字两大玩法；开发金币系统、解锁猫屋系统，搭建多关卡配置，覆盖9个成语36字玩法</li>
+                        <li>单例、协程优化全局状态，模块化解耦降低代码耦合</li>
+                        <li>优化资源调度，减少30%运行卡顿，适配WebGL</li>
                     </ul>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>项目成果</h4>
-                    <p class="text-main">项目完整Demo开发完成，功能稳定，后续计划上线微信小程序平台。</p>
+                    <p class="text-main">完整Demo开发完成，后续计划上线微信小程序。</p>
                 </div>
                 <div>
                     <span class="tag tag-blue">Unity</span>
                     <span class="tag tag-blue">C#</span>
-                    <span class="tag tag-normal">WebGL</span>
+                    <span class="tag tag-normal">UGUI</span>
                     <span class="tag tag-normal">协程</span>
+                    <span class="tag tag-normal">WebGL</span>
+                    <span class="tag tag-normal">PlayerPrefs</span>
                 </div>
             </div>
-
             <!-- 茉莉香韵VR -->
             <div class="card-base">
                 <div class="video-box">
@@ -342,42 +341,43 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                 </div>
                 <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
                     <div>
-                        <h3>茉莉香韵VR</h3>
-                        <span class="tag tag-main">VR非遗交互项目</span>
+                        <h3>茉莉香韵</h3>
+                        <span class="tag tag-main">VR体验游戏</span>
                     </div>
-                    <div class="text-light" style="text-align:right;">2人团队 · VR开发</div>
+                    <div class="text-light" style="text-align:right;">2人团队 · 程序主程<br/>2025.07‑2026.09</div>
                 </div>
                 <div class="grid-2-col">
                     <div>
                         <h4>项目背景</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">VR泡茶交互实训项目，完整茶道流程交互，适配XR设备。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">VR茶道交互实训体验项目，拥有软件著作权。</p>
                     </div>
                     <div>
                         <h4>本人职责</h4>
-                        <p class="text-gray" style="font-size:14px;line-height:1.5;">完成VR泡茶场景搭建、茶具抓取交互、全套3D泡茶动画开发。</p>
+                        <p class="text-gray" style="font-size:14px;line-height:1.5;">VR场景搭建、茶具抓取交互、泡茶动画、引导UI开发。</p>
                     </div>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>核心开发内容</h4>
                     <ul>
-                        <li>搭建VR泡茶场景，开发茶具手柄抓取交互逻辑</li>
-                        <li>制作全套3D泡茶流程动画，配套视频教程与UI操作引导</li>
+                        <li>完成VR泡茶场景搭建，茶具手柄抓取交互开发，制作整套3D泡茶流程动画</li>
+                        <li>实现视频教程、UI面板文字提示引导；依托XR交互组件优化操作手感，降低交互出错概率</li>
                     </ul>
                 </div>
                 <div style="margin-bottom:16px;">
                     <h4>项目成果</h4>
-                    <p class="text-main">获赛事一等奖，取得软件著作权。</p>
+                    <p class="text-main">取得软件著作权；获得第二课堂虚仿与游戏赛道一等奖。</p>
                 </div>
                 <div>
                     <span class="tag tag-blue">Unity</span>
                     <span class="tag tag-blue">C#</span>
+                    <span class="tag tag-normal">OpenXR</span>
                     <span class="tag tag-normal">XR Interaction Toolkit</span>
+                    <span class="tag tag-normal">InputSystem</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 <!-- 其他作品 -->
 <section id="other" class="section-gap" style="background:rgba(255,255,255,0.5);">
     <div class="container-wrap">
@@ -406,7 +406,6 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
         </div>
     </div>
 </section>
-
 <!-- 技能工具板块 -->
 <section id="skill" class="section-gap"  >
     <div class="container-wrap">
@@ -417,8 +416,8 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                 <h3 style="font-size:20px;margin-bottom:16px;">游戏引擎</h3>
                 <ul style="margin:0;">
                     <li>Unity 2021+ <span class="text-main">精通</span></li>
-                    <li>UE5 <span class="text-light">掌握</span></li>
-                    <li>Roblox Studio <span class="text-main">熟练</span></li>
+                    <li>UE5 <span class="text-light">了解</span></li>
+                    <li>Roblox Studio <span class="text-light">了解</span></li>
                 </ul>
             </div>
             <!-- 编程语言 -->
@@ -426,8 +425,8 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
                 <h3 style="font-size:20px;margin-bottom:16px;">编程语言</h3>
                 <ul style="margin:0;">
                     <li>C# <span class="text-main">精通</span></li>
-                    <li>C++ <span class="text-light">掌握</span></li>
-                    <li>Lua <span class="text-main">熟练</span></li>
+                    <li>C++ <span class="text-light">了解</span></li>
+                    <li>Lua <span class="text-light">了解</span></li>
                     <li>Node.js <span class="text-light">了解</span></li>
                 </ul>
             </div>
@@ -435,9 +434,9 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
             <div class="card-base">
                 <h3 style="font-size:20px;margin-bottom:16px;">中间件&工具</h3>
                 <ul style="margin:0;">
-                    <li>DOTween / Spine</li>
-                    <li>HybridCLR / Luban</li>
-                    <li>WebSocket / Protobuf</li>
+                    <li>DOTween</li>
+                    <li>HybridCLR / YooAsset</li>
+                    <li>ExcelDataReader / ScriptableObject</li>
                     <li>XR Interaction Toolkit</li>
                 </ul>
             </div>
@@ -445,23 +444,46 @@ footer{padding:40px 0;background:rgba(54,102,153,0.03);text-align:center;margin-
             <div class="card-base">
                 <h3 style="font-size:20px;margin-bottom:16px;">AI开发工具</h3>
                 <ul style="margin:0;">
-                    <li>TREA <span class="text-main">精通</span></li>
-                    <li>Claude Code <span class="text-main">掌握</span></li>
-                    <li>Codex <span class="text-light">精通</span></li>
-                    <li>Tuanjie AI <span class="text-main">精通</span></li>
+                    <li>AIGC辅助编码调试<span class="text-main">熟练</span></li>
+                    <li>AI图像、视频内容生成<span class="text-main">熟练</span></li>
                 </ul>
             </div>
             <!-- 综合能力 -->
             <div class="card-base">
                 <h3 style="font-size:20px;margin-bottom:16px;">综合软技能</h3>
                 <ul style="margin:0;">
-                    <li>项目统筹/团队管理</li>
+                    <li>项目统筹/团队协作</li>
                     <li>性能优化、游戏测试</li>
                     <li>数值配置、热更新开发</li>
-                    <li>安卓端/PC/VR多端适配</li>
+                    <li>安卓/微信小程序/WebGL/VR多端打包适配</li>
                 </ul>
             </div>
         </div>
+    </div>
+</section>
+
+<!-- ==========新增附件材料板块 图片横向一排========== -->
+<section id="attach" class="section-gap">
+    <div class="container-wrap">
+        <h2>附件材料</h2>
+        <div class="grid-attach">
+            <div class="attach-img-item">
+                <img src="./images/串行记.png" alt="串行记">
+            </div>
+            <div class="attach-img-item">
+                <img src="./images/茉莉香韵.png" alt="茉莉香韵">
+            </div>
+            <div class="attach-img-item">
+                <img src="./images/糖豆小镇.png" alt="糖豆小镇">
+            </div>
+            <div class="attach-img-item">
+                <img src="./images/罗布乐思.jpg" alt="svn罗布乐思">
+            </div>
+            <div class="attach-img-item">
+                <img src="./images/svn.png" alt="svn">
+            </div>
+        </div>
+        <p class="text-light" style="margin-top:16px;">包含游戏软件著作权、毕业证书、工作实习等佐证材料</p>
     </div>
 </section>
 
